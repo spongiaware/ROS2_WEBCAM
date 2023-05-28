@@ -21,7 +21,6 @@ class WebcamPublisherNode(Node):
             if not ret:
                 break
 
-
             # Publish the raw image
             self.publisher_raw.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
 
@@ -40,21 +39,18 @@ class WebcamPublisherNode(Node):
                 center_x = (x + w/2) / width
                 center_y = (y + h/2) / height
                 
-
+                # Draw an additional dot on middle of detected face
                 center_x_draw = int(x + (w/2))
                 center_y_draw = int(y + (h/2))
-
                 cv2.circle(frame, (center_x_draw, center_y_draw), radius=10, color=(0, 0, 255), thickness=3)
 
-                # Create and publish Point message for Webcam Coordinates
+                # Create and publish Point message for relative Coordinates
                 coordinates_msg = Point()
                 coordinates_msg.x = (center_x - 0.5) * 2  # Normalize to range [-1, 1]
                 coordinates_msg.y = (0.5 - center_y) * 2  # Normalize to range [-1, 1]
                 coordinates_msg.z = 0.0  # Assuming 2D coordinates
 
                 self.publisher_coordinates.publish(coordinates_msg)
-
-            
 
             # Publish the processed image
             self.publisher_processed.publish(self.bridge.cv2_to_imgmsg(frame, "bgr8"))
