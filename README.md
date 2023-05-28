@@ -12,21 +12,27 @@ This ROS2 node captures video frames from the webcam and publishes them on two t
 
 ## Build
 
-1. Create a ROS2 workspace (if you haven't already):
+1. Source ROS2
+
+    ```
+    source /opt/ros/foxy/setup.bash
+    ```
+
+2. Create a ROS2 workspace (if you haven't already):
 
     ```
     mkdir -p ~/ros2_webcam_ws/src
     cd ~/ros2_ws
     ```
 
-2. Clone the webcam_pkg package into the src directory:
+3. Clone the webcam_pkg package into the src directory:
 
     ```
     cd ~/ros2_webcam_ws/src
     git clone https://github.com/spongiaware/ROS2_WEBCAM
     ```
 
-3. Build the package:
+4. Build the package:
 
     ```
     cd ~/ros2_webcam_ws
@@ -60,7 +66,7 @@ This ROS2 node captures video frames from the webcam and publishes them on two t
     ```
     ros2 run rqt_image_view rqt_image_view
     ```
-    
+
 In rqt_image_view, select the desired topic to view the image streams:
 - To view the raw webcam image, select the topic: /webcam/image_raw
 - To view the processed webcam image, select the topic: /webcam/image_processed
