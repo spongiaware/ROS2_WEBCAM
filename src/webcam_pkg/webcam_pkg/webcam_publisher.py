@@ -36,9 +36,15 @@ class WebcamPublisherNode(Node):
                 cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), thickness=2)
 
                 # Calculate relative coordinates
-                width, height, _ = frame.shape
+                height, width, _ = frame.shape
                 center_x = (x + w/2) / width
                 center_y = (y + h/2) / height
+                
+
+                center_x_draw = int(x + (w/2))
+                center_y_draw = int(y + (h/2))
+
+                cv2.circle(frame, (center_x_draw, center_y_draw), radius=10, color=(0, 0, 255), thickness=3)
 
                 # Create and publish Point message for Webcam Coordinates
                 coordinates_msg = Point()

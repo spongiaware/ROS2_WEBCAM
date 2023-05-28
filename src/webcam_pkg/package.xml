@@ -4,7 +4,7 @@
   <name>webcam_pkg</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
-  <maintainer email="samuli@todo">samuli</maintainer>
+  <maintainer email="samuli.niemi@gmail.com">Samuli Niemi</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
