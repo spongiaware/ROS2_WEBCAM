@@ -58,7 +58,7 @@ This ROS2 node captures video frames from the webcam and publishes them on two t
 1. Open a new terminal and source your ROS2 workspace:
 
     ```
-    source ~/ros2_ws/install/setup.bash
+    source ~/ros2_webcam_ws/install/setup.bash
     ```
 
 2. Launch rqt_image_view:
